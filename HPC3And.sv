@@ -70,7 +70,7 @@ module HPC3And #(
                     assign s_in[I][J] = io_y[J] ^ r_m1[I][J];
                     assign p_0_in[I][J] = (~io_x[I]) & r_m1[I][J];
                     assign p_1_in[I][J] = s_out[I][J] & a_reg[I];
-                    
+
                     assign p_1_out[I][J] = p_1_in[I][J];
                     assign zi[I][J] = p_0_out[I][J] ^ p_1_out[I][J];
 
