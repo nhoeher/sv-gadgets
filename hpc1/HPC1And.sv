@@ -1,11 +1,11 @@
 module HPC1And #(
     parameter int d        = 1,
-    parameter int pipeline = 1
+    parameter int pipeline = 1 // If pipeline = 0, x input has to arrive one cycle later than y.
 )(
     input  logic                   control_clk,
     input  logic                   control_reset,
-    input  logic [d:0]             io_x,
-    input  logic [d:0]             io_y,
+    input  logic [d:0]             io_x, // Input that is NOT refreshed
+    input  logic [d:0]             io_y, // Input that is refreshed
     input  logic [((d+1)*d)-1:0]   io_r,
     output logic [d:0]             io_z
 );

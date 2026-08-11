@@ -1,6 +1,6 @@
 module HPC2And #(
     parameter int d        = 1,
-    parameter int pipeline = 1
+    parameter int pipeline = 1 // If pipeline = 0, x input has to arrive one cycle later than y.
 )(
     input  logic                   control_clk,
     input  logic                   control_reset,
