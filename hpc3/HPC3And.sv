@@ -68,7 +68,8 @@ module HPC3And #(
                 if (I != J) begin : gen_i_neq_j
                     // Signal connection
                     assign s_in[I][J] = io_y[J] ^ r_m1[I][J];
-                    assign p_0_in[I][J] = (~io_x[I]) & r_m1[I][J];
+                    // r_m2 blinds ~x_i & r_ij; required because p_1 is not registered
+                    assign p_0_in[I][J] = ((~io_x[I]) & r_m1[I][J]) ^ r_m2[I][J];
                     assign p_1_in[I][J] = s_out[I][J] & a_reg[I];
 
                     assign p_1_out[I][J] = p_1_in[I][J];
